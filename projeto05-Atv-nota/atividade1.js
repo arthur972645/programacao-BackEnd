@@ -66,36 +66,14 @@ const mostrarTabela = () => {
     }
     
     for(let i = 0; i < numeroDados /2; i++){
-        const jogo = document.createElement('div'); // Criar um elemento div para cada jogo
-        jogo.textContent = `${clubes[i].clube} -X- ${clubes[(numeroDados - i - 1)].clube}`; // Adicionar texto do jogo
-        
-        tabelaDejogos.appendChild(jogo); // Adicionar o jogo à tabela
-        
-        if (i !== numeroDados / 2) { // Se não for o último jogo
-            tabelaDejogos.appendChild(document.createElement('br')); // Adicionar uma quebra de linha
-        }
+        //aqui estamos crianco um novo elemento no html, uma div, mas pode ser qualque outra coisa, e estamos atribuindo essa criação a uma variavel
+        const jogo = document.createElement('div'); 
+        //Vamos pegar essa div que ta sendo criada e colocar um texto dentro dela que vai ser uma lógica
+        jogo.textContent = `${clubes[i].clube} -X- ${clubes[(numeroDados - i - 1)].clube}`; 
+        //Colocando essa 'div' que foi criada dentro de uma outra parte do HTML
+        tabelaDejogos.appendChild(jogo); 
     }   
 }   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 const limparInput  = () => {
     inNome.value = ""
 }

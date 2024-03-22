@@ -64,9 +64,18 @@ const mostrarTabela = () => {
         alert('a quantidade de clubes não é o bastante')
         return
     }
-    console.log(clubes)
-    clubes.shift()
-}
+    
+    for(let i = 0; i < numeroDados /2; i++){
+        const jogo = document.createElement('div'); // Criar um elemento div para cada jogo
+        jogo.textContent = `${clubes[i].clube} -X- ${clubes[(numeroDados - i - 1)].clube}`; // Adicionar texto do jogo
+        
+        tabelaDejogos.appendChild(jogo); // Adicionar o jogo à tabela
+        
+        if (i !== numeroDados / 2) { // Se não for o último jogo
+            tabelaDejogos.appendChild(document.createElement('br')); // Adicionar uma quebra de linha
+        }
+    }   
+}   
 
 
 

@@ -154,12 +154,19 @@ const data = {
 console.log(data)
 const inLinha = document.getElementById('inLinha')
 const btnHorario = document.getElementById('btnHorario')
+const statusOnubus = document.getElementById('statusOnubus')
+
+
 const horarios1 = document.getElementById('horarios1')
 const horarios2 = document.getElementById('horarios2')
 const horarios3 = document.getElementById('horarios3')
 const horarios4 = document.getElementById('horarios4')
 const quantidade = document.getElementById('quantidade')
 const btnMostarParadas = document.getElementById('btnMostarParadas')
+const btnPesquisarStatusOnibus = document.getElementById('btnPesquisarStatusOnibus')
+const outOnibus = document.getElementById('outOnibus')
+ 
+
 
 const horarioDePartidaChagada = () => {
     const  valueLinha = Number(inLinha.value)
@@ -176,8 +183,6 @@ const horarioDePartidaChagada = () => {
 }
 btnHorario.addEventListener('click', () => {
     horarioDePartidaChagada()
-    horarios3.remove()
-    horarios4.remove()
 })
 
 const paradasPorLinha = () => {
@@ -194,9 +199,22 @@ const paradasPorLinha = () => {
         horarios4.textContent = `Parada 4: ${data.linhas[1].paradas[3].nome}`
     }
 }
-
-
-
 btnMostarParadas.addEventListener('click', () => {
     paradasPorLinha()
+})
+
+const statusOnibus = () => {
+  const valueStatusOnibus = statusOnubus.value
+  console.log(valueStatusOnibus)
+
+  if(valueStatusOnibus === "Em operação"){
+      for(let i = 0; i < 3 ; i++){
+        outOnibus.textContent = `Lista de Onibus: ${data.onibus[i]}`
+      }
+  }
+ 
+}
+ 
+btnPesquisarStatusOnibus.addEventListener('click',() => {
+  statusOnibus()
 })
